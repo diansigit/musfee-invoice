@@ -1,0 +1,9 @@
+export { AccountModule } from './account/account.module';
+export { ClassroomModule } from './classroom/classroom.module';
+export { DashboardModule } from './dashboard/dashboard.module';
+export { EnrollmentModule } from './enrollment/enrollment.module';
+export { PropertiesModule } from './properties/properties.module';
+export { ReportModule } from './report/report.module';
+export { StudentModule } from './student/student.module';
+export { TentorModule } from './tentor/tentor.module';
+export { UserModule } from './user/user.module';

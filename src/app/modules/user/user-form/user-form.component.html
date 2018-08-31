@@ -1,0 +1,37 @@
+<app-modal
+  [title]="'Tambah pengguna'" 
+  [btnSaveValid]="formUser.valid"
+  (btnCancelClicked)="modalRef.hide()"
+  (btnCloseClicked)="modalRef.hide()"
+  (btnSaveClicked)="onFormUserSubmit(formUser.value)"
+>
+  <form [formGroup]="formUser" (ngSubmit)="onFormUserSubmit(formUser.value)">
+    <div class="form-group">
+      <label for="name">Nama</label>
+      <input formControlName="name" type="text" class="form-control" id="name" placeholder="Nama">
+    </div>
+    <div class="form-group">
+      <label for="phone">No. HP</label>
+      <input formControlName="phone" type="text" class="form-control" id="phone" placeholder="No. HP">
+    </div>
+    <div class="form-group">
+      <label for="qrcode" class="d-block text-center"><strong>QR CODE</strong></label>
+      <input formControlName="qrcode" type="text" class=form-control id="qrcode" placeholder="Scan QR Code">
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <app-form-select 
+        [id]="'role'" 
+        [options]="roleOpts"
+      ></app-form-select>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input formControlName="username" type="text" class="form-control" id="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+  </form>
+</app-modal>

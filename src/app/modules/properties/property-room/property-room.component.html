@@ -1,0 +1,16 @@
+<app-content-wrapper 
+  [title]="'Ruang'" 
+  [showButtonCreate]="true"
+  [createBtnTitle]="'Tambah Ruang'"
+  (createClicked)="onBtnCreateClick()">
+  <app-data-table 
+    [actionColumn]="true" 
+    [limitOptions]="false"
+    [searchOptions]="false"
+    [rows]="rows" 
+    [columns]="columns" 
+    (editClicked)="onBtnUpdateClick($event)"
+    (detailClicked)="onBtnViewClick($event)" 
+    (deleteClicked)="onBtnDeleteClick($event)" 
+  ></app-data-table>
+</app-content-wrapper>

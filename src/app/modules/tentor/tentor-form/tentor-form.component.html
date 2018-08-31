@@ -1,0 +1,45 @@
+<app-modal
+  [title]="modalTitle" 
+  [btnSaveValid]="formTentor.valid"
+  (btnCancelClicked)="modalRef.hide()"
+  (btnCloseClicked)="modalRef.hide()"
+  (btnSaveClicked)="onFormTentorSubmit(formTentor.value)"
+>
+  <form [formGroup]="formTentor" (ngSubmit)="onFormTentorSubmit(formTentor.value)">
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Nama</label>
+          <input formControlName="name" type="text" class="form-control" id="name" placeholder="Nama">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="phone">No. HP</label>
+          <input formControlName="phone" type="text" class="form-control" id="phone" placeholder="No. HP">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Alamat</label>
+      <textarea formControlName="address" class="form-control" id="address" placeholder="Alamat"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="courses">Mata pelajaran</label>
+      <app-form-select 
+        [id]="'courses'" 
+        [multiple]="true" 
+        [options]="courseOpts"
+        (optionSelected)="onOptionsCoursesSelected($event)"
+      ></app-form-select>
+      <app-help-text>Tekan tombol Ctrl / Command untuk memilih lebih dari satu</app-help-text>
+    </div>
+    
+    <div class="form-group">
+      <label for="qrcode" class="d-block text-center"><strong>QR CODE</strong></label>
+      <input formControlName="qrcode" type="text" class=form-control id="qrcode" placeholder="Scan QR Code">
+    </div>
+  </form>
+</app-modal>

@@ -1,0 +1,20 @@
+<app-modal
+  [title]="modalTitle" 
+  [btnSaveValid]="formCourse.valid"
+  (btnCancelClicked)="modalRef.hide()"
+  (btnCloseClicked)="modalRef.hide()"
+  (btnSaveClicked)="onFormCourseSubmit(formCourse.value)"
+>
+  <form [formGroup]="formCourse" (ngSubmit)="onFormCourseSubmit(formCourse.value)">
+    <div class="form-group">
+      <label for="name">Nama</label>
+      <input formControlName="name" type="text" class="form-control" id="name" placeholder="Nama">
+    </div>
+
+    <div class="form-group">
+      <label for="note">Keterangan</label>
+      <textarea formControlName="note" class="form-control" id="note" placeholder="Keterangan"></textarea>
+      <app-help-text>Masukkan keterangan jika diperlukan.</app-help-text>
+    </div>
+  </form>
+</app-modal>

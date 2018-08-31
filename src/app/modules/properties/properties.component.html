@@ -1,0 +1,22 @@
+<app-content-wrapper [title]="'Pengaturan'">
+  <tabset #staticTabs >
+    <tab heading="Ruang" id="room">
+      <app-property-room></app-property-room>
+    </tab>
+    <tab heading="Sesi" id="session">
+      <app-property-session></app-property-session>
+    </tab>
+    <tab heading="Mata Pelajaran" id="course">
+      <app-property-course></app-property-course>
+    </tab>
+    <tab heading="Biaya" id="cost">
+      <app-property-cost></app-property-cost>
+    </tab>
+    <tab heading="QR Code" id="qrcode">
+      <app-property-qrcode></app-property-qrcode>
+    </tab>
+    <!-- <tab heading="Hari" id="day">
+      <app-property-day></app-property-day>
+    </tab> -->
+  </tabset>
+</app-content-wrapper>

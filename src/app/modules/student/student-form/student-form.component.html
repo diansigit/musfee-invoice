@@ -1,0 +1,49 @@
+<app-modal
+  [title]="modalTitle" 
+  [btnSaveValid]="formStudent.valid"
+  (btnCancelClicked)="modalRef.hide()"
+  (btnCloseClicked)="modalRef.hide()"
+  (btnSaveClicked)="onFormStudentSubmit(formStudent.value)"
+>
+  <form [formGroup]="formStudent" (ngSubmit)="onFormStudentSubmit(formStudent.value)">
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Nama siswa</label>
+          <input formControlName="name" type="text" class="form-control" id="name" placeholder="Nama">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="phone">No. HP siswa</label>
+          <input formControlName="phone" type="text" class="form-control" id="phone" placeholder="No. HP">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="parent_name">Nama orang tua</label>
+          <input formControlName="parent_name" type="text" class="form-control" id="parent_name" placeholder="Nama Orang tua">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="parent_phone">No. HP orang tua</label>
+          <input formControlName="parent_phone" type="parent_phone" class="form-control" id="parent_phone" placeholder="No. HP Orang tua">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Alamat</label>
+      <textarea formControlName="address" class="form-control" id="address" placeholder="Alamat"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="qrcode" class="d-block text-center"><strong>QR CODE</strong></label>
+      <input formControlName="qrcode" type="text" class=form-control id="qrcode" placeholder="Scan QR Code">
+    </div>
+  </form>
+</app-modal>

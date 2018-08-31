@@ -1,0 +1,31 @@
+<app-modal
+  [title]="modalTitle" 
+  [btnSaveValid]="formSession.valid"
+  (btnCancelClicked)="modalRef.hide()"
+  (btnCloseClicked)="modalRef.hide()"
+  (btnSaveClicked)="onFormSessionSubmit(formSession.value)"
+>
+  <form [formGroup]="formSession" (ngSubmit)="onFormSessionSubmit(formSession.value)">
+    <div class="form-group">
+      <label for="name">Nama</label>
+      <input formControlName="name" type="text" class="form-control" id="name" placeholder="Nama">
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <label for="time_start">Waktu mulai</label>
+        <timepicker formControlName="time_start" [showMeridian]="false" [mousewheel]="true" [minuteStep]="1"></timepicker>
+      </div>
+      <div class="col">
+        <label for="time_end">Waktu selesai</label>
+        <timepicker formControlName="time_end" [showMeridian]="false" [mousewheel]="true" [minuteStep]="1"></timepicker>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="note">Keterangan</label>
+      <textarea formControlName="note" class="form-control" id="note" placeholder="Keterangan"></textarea>
+      <app-help-text>Masukkan keterangan jika diperlukan.</app-help-text>
+    </div>
+  </form>
+</app-modal>

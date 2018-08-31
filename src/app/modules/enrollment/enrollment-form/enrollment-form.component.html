@@ -1,0 +1,66 @@
+<app-modal
+  [title]="modalTitle" 
+  [btnSaveValid]="formEnrollment.valid"
+  (btnCancelClicked)="modalRef.hide()"
+  (btnCloseClicked)="modalRef.hide()"
+  (btnSaveClicked)="onFormStudentSubmit(formEnrollment.value)"
+>
+  <form [formGroup]="formEnrollment" (ngSubmit)="onFormStudentSubmit(formEnrollment.value)">  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend" dropdown>
+          <span class="input-group-text">Cari</span>
+          <app-form-select 
+            [id]="'courses'" 
+            [options]="searchOpts"
+          ></app-form-select>
+          <span class="input-group-text">siswa</span>
+        </div>
+        <input type="text" aria-label="First name" class="form-control">
+      </div>
+    </div>  
+
+    <div class="form-group">
+      <button class="btn" (click)="onBtnCreateClick()">Tambah siswa</button>
+    </div>
+
+    <div class="form-row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="school">Sekolah</label>
+          <input formControlName="school" type="text" class="form-control" id="school" placeholder="Sekolah">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="class">Kelas</label>
+          <app-form-select 
+            [options]="classGradeOpts"
+            [selected]="classGradeOptsSelected"
+            (optionSelected)="onOptionsTypeSelected($event)"
+          ></app-form-select>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label for="program">Tipe bimbingan</label>
+          <app-form-select 
+            [options]="programOpts"
+            [selected]="programOptsSelected"
+            (optionSelected)="onOptionsTypeSelected($event)"
+          ></app-form-select>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="formEnrollment.value.program === 'private'" class="form-group">
+      <label for="courses">Mata pelajaran</label>
+      <app-form-select 
+        [id]="'courses'" 
+        [multiple]="true" 
+        [options]="courseOpts"
+      ></app-form-select>
+      <app-help-text>Tekan tombol Ctrl / Command untuk memilih lebih dari satu</app-help-text>
+    </div>
+  </form>
+</app-modal>

@@ -1,0 +1,16 @@
+<app-content-wrapper 
+  [title]="'Siswa'" 
+  [showButtonCreate]="true" 
+  [createBtnTitle]="'Tambah Siswa'" 
+  (createClicked)="onBtnCreateClick()">
+  <app-data-table 
+    [actionColumn]="true" 
+    [limitOptions]="false"
+    [searchOptions]="false"
+    [rows]="rows" 
+    [columns]="columns" 
+    (editClicked)="onBtnUpdateClick($event)"
+    (detailClicked)="onBtnViewClick($event)" 
+    (deleteClicked)="onBtnDeleteClick($event)" 
+  ></app-data-table>
+</app-content-wrapper>
